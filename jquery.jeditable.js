@@ -205,7 +205,7 @@
                     }, 100);
 
                     var loaddata = {};
-                    loaddata[settings.id] = self.id;
+                    loaddata[settings.id] = $(self).data('id') || self.id;
                     if ($.isFunction(settings.loaddata)) {
                         $.extend(loaddata, settings.loaddata.apply(self, [self.revert, settings]));
                     } else {
@@ -316,7 +316,7 @@
                                 /* Add edited content and id of edited element to POST. */
                                 var submitdata = {};
                                 submitdata[settings.name] = input.val();
-                                submitdata[settings.id] = self.id;
+                                submitdata[settings.id] = $(self).data('id') || self.id;
                                 /* Add extra data to be POST:ed. */
                                 if ($.isFunction(settings.submitdata)) {
                                     $.extend(submitdata, settings.submitdata.apply(self, [self.revert, settings]));
